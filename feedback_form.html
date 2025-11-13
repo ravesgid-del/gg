@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заманауи Пікір Қалдыру</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e9ecef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .feedback-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #343a40;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        
+        .rating {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            background: none;
+            color: #adb5bd;
+            transition: color 0.2s;
+            font-size: 25px;
+        }
+
+        .rating input:checked ~ label,
+        .rating label:hover,
+        .rating label:hover ~ label {
+            color: #ffc107;
+        }
+        
+        
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+        
+        
+        .error-message {
+            color: #dc3545;
+            font-size: 0.875em;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="feedback-card">
+    <h2>🌟 Пікір қалдырыңыз</h2>
+    
+    <form id="feedbackForm" action="#" method="POST"> 
+        
+        <div class="form-group">
+            <label for="rating">Бағаңызды беріңіз (міндетті):</label>
+            <div class="rating">
+                <input type="radio" id="star5" name="rating" value="5" required><label for="star5"><i class="fas fa-star"></i></label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4"><i class="fas fa-star"></i></label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3"><i class="fas fa-star"></i></label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2"><i class="fas fa-star"></i></label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1"><i class="fas fa-star"></i></label>
+            </div>
+            <div id="rating-error" class="error-message"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="comment">Пікіріңіз (кемінде 10 сөз):</label>
+            <textarea id="comment" name="comment" required></textarea>
+            <div id="comment-error" class="error-message"></div>
+        </div>
+        
+        <div class="form-group">
+            <label for="name">Аты-жөніңіз (міндетті емес):</label>
+            <input type="text" id="name" name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email (міндетті емес):</label>
+            <input type="email" id="email" name="email">
+        </div>
+        
+        <button type="submit" class="submit-btn">Пікірді жіберу</button>
+       <div class="container">  <a href="ww.html" style="text-decoration: none;" class="back-link">
+    <center>
+            <h1 style="color: rgb(24, 124, 255);text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4) ;"><small>🏠 Басты бетке оралу</small></h1>
+        </a>
+        </center>
+    </form>
+</div>
+
+<script>
+    
+    document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+        let isValid = true;
+
+        
+        const comment = document.getElementById('comment').value.trim();
+        const commentError = document.getElementById('comment-error');
+        const wordCount = comment.split(/\s+/).filter(word => word.length > 0).length;
+
+        if (wordCount < 10) {
+            commentError.textContent = 'Пікір кемінде 10 сөзден тұруы керек.';
+            isValid = false;
+        } else {
+            commentError.textContent = '';
+        }
+        
+      
+        const ratingError = document.getElementById('rating-error');
+        const selectedRating = document.querySelector('input[name="rating"]:checked');
+
+        if (!selectedRating) {
+            ratingError.textContent = 'Бағалау (жұлдызша) таңдалуы міндетті.';
+            isValid = false;
+        } else {
+            ratingError.textContent = '';
+        }
+
+        
+        if (!isValid) {
+            event.preventDefault();
+        } else {
+            
+        }
+    });
+    
+</script>
+
+</body>
+</html>

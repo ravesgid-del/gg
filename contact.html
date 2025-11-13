@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ықшамдалған Байланыс Формасы</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
+            width: 100%;
+            max-width: 550px; /* Көбірек орын */
+        }
+
+        h2 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+            font-size: 15px; 
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"], 
+        select,          
+        textarea {
+            width: 100%;
+            padding: 10px; 
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box; 
+            font-size: 15px; 
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 80px; 
+        }
+
+        .radio-group, .checkbox-group {
+            margin-top: 5px; 
+        }
+        
+        .radio-group label, .checkbox-group label {
+            font-weight: normal;
+            display: inline;
+            margin-left: 5px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #28a745; 
+            color: white;
+            padding: 12px 15px; 
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 17px; 
+            font-weight: 700;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #1e7e34;
+        }
+
+        .back-link-container {
+            text-align: center;
+            margin-top: 20px; 
+            padding-top: 15px; 
+            border-top: 1px dashed #ddd; 
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        /* Жасырын блоктарды басқару */
+        .hidden-fields {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .show-fields {
+            max-height: 500px; /* Анимация үшін жеткілікті үлкен мән */
+        }
+        
+        /* Жіберу хабарламасы */
+        #success-message {
+            display: none;
+            padding: 15px;
+            margin-top: 20px;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container"> 
+    <h2>🤝 Өтініш / Ынтымақтастық Формасы</h2>
+    
+    <form id="contact-form">
+        
+        <!-- Сұраныс түрі -->
+        <div class="form-group">
+            <label for="request_type">Сұраныс түрін таңдаңыз:</label>
+            <select id="request_type" name="request_type" required onchange="toggleFields()">
+                <option value="">-- Таңдаңыз --</option>
+                <option value="Көмек сұрау">Көмек сұрау (Әлеуметтік/Заттай)</option>
+                <option value="Волонтерлік">Волонтер болу (Көмек көрсету)</option>
+                <option value="Ынтымақтастық">Ынтымақтастық/Басқа сұрақтар</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="name">Аты-жөніңіз (Аты):</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Электрондық пошта (Email):</label>
+            <input type="email" id="email" name="_replyto" required> 
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Телефон нөмірі (Міндетті емес):</label>
+            <input type="tel" id="phone" name="phone">
+        </div>
+        
+        <div class="form-group">
+            <label for="city">Қала/Елді мекен:</label>
+            <input type="text" id="city" name="city" required>
+        </div>
+
+        <!-- Волонтерлікке қатысты қосымша сұрақтар -->
+        <div id="volunteer-fields" class="hidden-fields">
+            <div class="form-group">
+                <label for="v_type">Волонтерлік бағыты:</label>
+                <select id="v_type" name="volunteer_type">
+                    <option value="">-- Бағытты таңдаңыз --</option>
+                    <option value="Физикалық көмек">Физикалық көмек (Тасымалдау, үй жұмысы)</option>
+                    <option value="Кеңес беру">Кеңес беру (Заңгер, психолог)</option>
+                    <option value="Онлайн/IT">Онлайн/IT (Веб, Әлеуметтік желілер)</option>
+                    <option value="Басқа">Басқа</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="v_hours">Аптасына шамамен қанша сағат бөле аласыз?</label>
+                <input type="number" id="v_hours" name="volunteer_hours" min="1" max="50">
+            </div>
+        </div>
+
+        <!-- Көмек сұрауға қатысты қосымша сұрақтар -->
+        <div id="help-fields" class="hidden-fields">
+            <div class="form-group">
+                <label for="h_needs">Қандай көмек түрі қажет?</label>
+                <select id="h_needs" name="help_needs">
+                    <option value="">-- Көмек түрін таңдаңыз --</option>
+                    <option value="Азық-түлік">Азық-түлік/Киім-кешек</option>
+                    <option value="Заңгерлік">Заңгерлік кеңес</option>
+                    <option value="Күтім">Патронаждық күтім</option>
+                    <option value="Басқа">Басқа</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="message">Хабарлама/Толық түсініктеме:</label>
+            <textarea id="message" name="message" required></textarea>
+        </div>
+        
+        <button type="submit">Өтінішті Жіберу</button> 
+    </form>
+    
+    <div id="success-message">
+        Рахмет! Сіздің өтінішіңіз қабылданды. Біздің менеджер жақын арада сізбен хабарласады.
+    </div>
+    
+    <div class="back-link-container">
+        <a href="ww.html" class="back-link">
+            🏠 Басты бетке оралу
+        </a>
+    </div>
+
+</div>
+
+<script>
+    // Құжаттарды жіберуді басқару функциясы
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const form = e.target;
+        const formData = new FormData(form);
+        const data = {};
+        formData.forEach((value, key) => { data[key] = value; });
+
+        // Бұл жерде Formspree сияқты қызметке AJAX арқылы жіберуді имитациялаймыз
+        const action = form.action; 
+
+        try {
+            // Жіберуді имитациялау үшін 1 секунд күту
+            await new Promise(resolve => setTimeout(resolve, 1000)); 
+            
+            // Сәтті жіберілді деп есептейміз
+            form.reset(); 
+            form.style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+
+        } catch (error) {
+            console.error('Жіберу қатесі:', error);
+            // Қате туралы хабарламаны көрсетуге болады
+        }
+    });
+
+    // Динамикалық өрістерді көрсету/жасыру функциясы
+    function toggleFields() {
+        const type = document.getElementById('request_type').value;
+        const volunteerFields = document.getElementById('volunteer-fields');
+        const helpFields = document.getElementById('help-fields');
+
+        // Барлық өрістерді жасыру
+        volunteerFields.classList.remove('show-fields');
+        helpFields.classList.remove('show-fields');
+
+        if (type === 'Волонтерлік') {
+            volunteerFields.classList.add('show-fields');
+        } else if (type === 'Көмек сұрау') {
+            helpFields.classList.add('show-fields');
+        }
+    }
+</script>
+</body>
+</html>

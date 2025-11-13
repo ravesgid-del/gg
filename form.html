@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Көмек Сұрау Өтініші</title>
+    <style>
+        /* Негізгі CSS стильдері */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #e9ecef; /* Ашық сұр фон */
+        }
+        .container {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007bff; /* Көк түсті тақырып */
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #495057;
+        }
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            box-sizing: border-box; 
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #007bff; /* Фокустау кезіндегі түс */
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1> Көмек Сұрау Өтініші</h1>
+        
+        <form action="/submit-help-request" method="POST"> 
+            
+            <div class="form-group">
+                <label for="full_name">Аты-Жөніңіз:</label>
+                <input type="text" id="full_name" name="full_name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Электрондық Пошта (жауап алу үшін):</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="topic">Сұрақтың Тақырыбы:</label>
+                <select id="topic" name="topic" required>
+                    <option value="">Таңдаңыз</option>
+                    <option value="technical">Техникалық мәселе</option>
+                    <option value="billing">Төлем/Есеп айырысу</option>
+                    <option value="general_question">Жалпы сұрақ</option>
+                    <option value="other">Басқа</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="request_details">Өтініштің Толық Мәтіні (мәселені егжей-тегжейлі сипаттаңыз):</label>
+                <textarea id="request_details" name="request_details" rows="8" required placeholder="Мұнда сіздің сұрағыңызды немесе мәселеңізді толық жазыңыз..."></textarea>
+            </div>
+
+            <input type="submit" value="Өтінішті Жіберу">
+            
+        </form>
+    </div>
+<a href="ww.html" style="text-decoration: none;" class="back-link">
+    <center>
+            <h2 style="color: rgb(24, 124, 255);text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4) ;">🏠 Басты бетке оралу</h2>
+        </a>
+        </center>
+</body>
+</html>

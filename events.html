@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Барлық Іс-шаралар</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #eaf4ff; /* Ашық көк фон */
+            color: #343a40;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #007BFF;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #28A745;
+            margin-top: 30px;
+            padding-left: 15px;
+            border-left: 5px solid #28A745;
+        }
+        .event-card {
+            background: #f8f9fa;
+            border: 1px solid #ced4da;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .event-card h3 {
+            color: #0056b3;
+            margin-top: 0;
+        }
+        .event-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        .status-upcoming {
+            background-color: #ffc107; /* Сары */
+            color: #333;
+        }
+        .status-completed {
+            background-color: #28a745; /* Жасыл */
+            color: white;
+        }
+        .status-cancelled {
+            background-color: #dc3545; /* Қызыл */
+            color: white;
+        }
+        .register-link {
+            display: inline-block;
+            background: #007BFF;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        .register-link:hover {
+            background: #0056b3;
+        }
+        .past-event-link {
+            color: #6c757d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.2em;
+            color: #007BFF;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🗓️ Волонтерлық Іс-шаралар Кестесі</h1>
+        <p style="text-align: center; font-size: 1.1em; color: #6c757d;">
+            Біздің алдағы және өткен іс-шараларымыз туралы толық ақпарат. Қосылып, өз үлесіңізді қосыңыз!
+        </p>
+
+        <h2>Алдағы Іс-шаралар</h2>
+
+        <div class="event-card">
+            <div class="event-details">
+                <span>📍 **Өтетін орны:** Алматы, Жастар орталығы</span>
+                <span class="status-badge status-upcoming">Күтілуде</span>
+            </div>
+            <h3>📚 Балаларға арналған оқу сағаты</h3>
+            <p><strong>Күні мен уақыты:</strong> 5 Желтоқсан, 2025 ж., сағат 15:00</p>
+            <p>Мұқтаж отбасылардың 6-10 жас аралығындағы балаларына ертегілер оқып, логикалық ойындар ойнатамыз. Волонтерлерден орыс және қазақ тілдеріндегі ертегілерді білу талап етіледі.</p>
+            <a href="register.html" class="register-link">Волонтер болып жазылу</a>
+        </div>
+
+        <div class="event-card">
+            <div class="event-details">
+                <span>📍 **Өтетін орны:** Нұр-Сұлтан, Қарттар үйі</span>
+                <span class="status-badge status-upcoming">Күтілуде</span>
+            </div>
+            <h3>👵 "Жылы сөз" бағдарламасы</h3>
+            <p><strong>Күні мен уақыты:</strong> 15 Желтоқсан, 2025 ж., сағат 11:00</p>
+            <p>Қарттар үйінің тұрғындарына шағын концерт қойып, олармен әңгімелесу және кішігірім тұрмыстық көмек көрсету (кітап оқып беру, сыртқа шығару).</p>
+            <a href="register.html" class="register-link">Волонтер болып жазылу</a>
+        </div>
+        
+        <h2>Өткен Іс-шаралар</h2>
+
+        <div class="event-card">
+            <div class="event-details">
+                <span>📍 **Өтетін орны:** Шымкент облысы</span>
+                <span class="status-badge status-completed">Аяқталды</span>
+            </div>
+            <h3>🚚 "Қысқы керуен" гуманитарлық көмек</h3>
+            <p><strong>Күні:</strong> 10 Қараша, 2025 ж.</p>
+            <p>15 ауылға 80 отбасыға жылы киім мен азық-түлік жеткізілді. Акцияға 30-дан астам волонтер қатысты.</p>
+            <a href="article_karuan.html" class="past-event-link">Толық есеп және фотосуреттер</a>
+        </div>
+        
+        <div class="event-card">
+            <div class="event-details">
+                <span>📍 **Өтетін орны:** Онлайн (Zoom платформасы)</span>
+                <span class="status-badge status-completed">Аяқталды</span>
+            </div>
+            <h3>💻 IT-волонтерлік бойынша семинар</h3>
+            <p><strong>Күні:</strong> 25 Қазан, 2025 ж.</p>
+            <p>Ұйымның веб-сайтын жүргізуге және әлеуметтік желілерде контент жасауға қатысуға қызығушылық танытқан еріктілер үшін өткізілді.</p>
+        </div>
+
+      <a href="ww.html" style="text-decoration: none;"><h2>🏠 Басты бетке оралу</h2></a>
+    </div>
+
+</body>
+</html>

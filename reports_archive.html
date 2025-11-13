@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Қаржылық Есептер Архиві</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f4f7f6; /* Жеңіл фон */
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #007BFF;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #007BFF;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #28A745; /* Жасыл түс */
+            margin-top: 30px;
+            border-left: 5px solid #28A745;
+            padding-left: 10px;
+        }
+        .report-list {
+            list-style: none;
+            padding: 0;
+        }
+        .report-list li {
+            background: #e9f7ef; /* Ашық жасыл фон */
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: background 0.3s;
+        }
+        .report-list li:hover {
+            background: #d4edda;
+        }
+        .report-info {
+            flex-grow: 1;
+        }
+        .report-info strong {
+            font-size: 1.1em;
+            color: #333;
+        }
+        .download-link {
+            background-color: #007BFF;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .download-link:hover {
+            background-color: #0056b3;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.2em;
+            color: #007BFF;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>📊 Қаржылық Есептер Архиві</h1>
+        <p style="text-align: center; font-size: 1.1em;">
+            Ұйымның ашықтығын қамтамасыз ету мақсатында, біз барлық қаржылық қызметіміз туралы толық және егжей-тегжейлі есептерді ұсынамыз.
+        </p>
+        
+        <h2>Жылдық Есептер</h2>
+        <ul class="report-list">
+            <li>
+                <div class="report-info">
+                    <strong>2024 Жылдық Қаржылық Есеп</strong>
+                    <p>Қамтиды: Жалпы түсім, бағдарламалық шығындар және әкімшілік шығыстар.</p>
+                </div>
+                <a href="reports/2024_annual_report.pdf" class="download-link" download>Жүктеу (PDF)</a>
+            </li>
+            <li>
+                <div class="report-info">
+                    <strong>2023 Жылдық Қаржылық Есеп</strong>
+                    <p>2023 жылғы барлық қайырымдылық және гранттық қаржыландыру туралы толық есеп.</p>
+                </div>
+                <a href="reports/2023_annual_report.pdf" class="download-link" download>Жүктеу (PDF)</a>
+            </li>
+        </ul>
+        
+        <h2>Тоқсандық Есептер</h2>
+        <ul class="report-list">
+            <li>
+                <div class="report-info">
+                    <strong>2025 жыл, 1-тоқсан (Қаңтар - Наурыз)</strong>
+                    <p>Волонтерлік бағдарламаларға бөлінген қаржының егжей-тегжейлі есебі.</p>
+                </div>
+                <a href="reports/2025_q1_report.pdf" class="download-link" download>Жүктеу (PDF)</a>
+            </li>
+            <li>
+                <div class="report-info">
+                    <strong>2024 жыл, 4-тоқсан (Қазан - Желтоқсан)</strong>
+                    <p>"Қысқы Жылу" жобасына жұмсалған қаражат есебі.</p>
+                </div>
+                <a href="reports/2024_q4_report.pdf" class="download-link" download>Жүктеу (PDF)</a>
+            </li>
+            <li>
+                <div class="report-info">
+                    <strong>2024 жыл, 3-тоқсан (Шілде - Қыркүйек)</strong>
+                    <p>Көмекке мұқтаж отбасыларға көрсетілген заттай көмектің құндық есебі.</p>
+                </div>
+                <a href="reports/2024_q3_report.pdf" class="download-link" download>Жүктеу (PDF)</a>
+            </li>
+        </ul>
+
+        <a href="новости.html" class="back-link">
+            &#9664; Жаңалықтар бетіне оралу
+        </a>
+        
+        <a href="ww.html" class="back-link" style="color: #28A745;">
+            🏠 Басты бетке өту
+        </a>
+
+    </div>
+
+</body>
+</html>
